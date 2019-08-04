@@ -29,3 +29,7 @@ class Solution:
             else:
                 j -=1 
         return False
+
+注意事项： python中不存在 i++这种表达。
+          二维数组的行数：row = len(array)
+          二维数组的列数：col = len(array[0])
