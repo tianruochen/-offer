@@ -76,3 +76,4 @@ class Solution:
 a=[1,2,3,4,5,6,7,0]
 Solution().InversePairs(a)
 
+补充：归并排序：https://www.cnblogs.com/bianjing/p/10260264.html
