@@ -78,20 +78,3 @@
         return uglyList[-1]
         
         
-2.1.class Solution:            #运行报错
-    def GetUglyNumber_Solution(self, index):
-        choushuset=set()
-        choushuset.add(1)
-        i=0
-        while True:
-            if(len(choushuset)>=index):
-                break
-            choushuset.add(choushu[i]*2)
-            choushuset.add(choushu[i]*3)
-            choushuset.add(choushu[i]*5)
-            i=i+1
-           
-        b=list(choushuset)        
-        b = sorted(b)
-        
-        return b[index-1]
