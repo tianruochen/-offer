@@ -9,44 +9,7 @@
         一起往后走，找到第一个公共结点。
   
 成功方案：
-# -*- coding:utf-8 -*-
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-class Solution:
-    def FindFirstCommonNode(self, pHead1, pHead2):
-        # write code here
-        
-        pre1 = pHead1
-        pre2 = pHead2
-        while pre1:
-            while pre2:
-                if pre2.val == pre1.val:
-                    return pre2
-                pre2 = pre2.next
-            pre1= pre1.next
-        return None
-        
-        
-class Solution:
-    def FindFirstCommonNode(self, pHead1, pHead2):
-        # write code here
-        list1 = []
-        list2 = []
-        node1 = pHead1
-        node2 = pHead2
-        while node1:
-            list1.append(node1.val)
-            node1 = node1.next
-        while node2:
-            if node2.val in list1:
-                return node2
-            else:
-                node2 = node2.next
-
-2.class Solution:
-    def FindFirstCommonNode(self, pHead1, pHead2):
+1.def FindFirstCommonNode(self, pHead1, pHead2):
         # write code here
         p1 = pHead1
         p2 = pHead2
@@ -69,3 +32,33 @@ class Solution:
                 pHead1 = pHead1.next
                 pHead2 = pHead2.next
         return None
+    
+   2.def FindFirstCommonNode(self, pHead1, pHead2):
+        # write code here
+        list1 = []
+        list2 = []
+        node1 = pHead1
+        node2 = pHead2
+        while node1:
+            list1.append(node1)
+            node1 = node1.next
+        while node2:
+            if node2 in list1:
+                return node2
+            else:
+                node2 = node2.next
+                
+   3.def FindFirstCommonNode(self, pHead1, pHead2):
+        # write code here
+        
+        pre1 = pHead1
+        pre2 = pHead2
+        while pre1:
+            while pre2:
+                if pre2.val == pre1.val:
+                    return pre2
+                pre2 = pre2.next
+            pre1= pre1.next
+            pre2 = pHead2
+        return None
+    
