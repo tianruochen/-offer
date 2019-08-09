@@ -17,6 +17,21 @@
 class Solution:
     def FindFirstCommonNode(self, pHead1, pHead2):
         # write code here
+        
+        pre1 = pHead1
+        pre2 = pHead2
+        while pre1:
+            while pre2:
+                if pre2.val == pre1.val:
+                    return pre2
+                pre2 = pre2.next
+            pre1= pre1.next
+        return None
+        
+        
+class Solution:
+    def FindFirstCommonNode(self, pHead1, pHead2):
+        # write code here
         list1 = []
         list2 = []
         node1 = pHead1
