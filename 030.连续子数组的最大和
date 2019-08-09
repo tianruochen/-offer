@@ -5,9 +5,54 @@
 (子向量的长度至少是1)
 
 解题思路：
+      1./*
+           (1) 常规方法,时间复杂度O（n*n） 
+           (2) 先从第一个元素开始向后累加， 
+           (3)每次累加后与之前的和比较，保留最大值， 
+           (4) 再从第二个元素开始向后累加，以此类推
+          */
+      2.
+          /* 
+         （1） 最优方法，时间复杂度O（n） 
+         （2） 和最大的子序列的第一个元素肯定是正数 
+         （3） 因为元素有正有负，因此子序列的最大和一定大于0 
+           */
+
 
 成功方案：
-
+1.
+ public static int maxSubSum1(int[] arr, int len) {
+        int i, j;
+        int maxSum = 0;
+        //每次开始累加的起始位置的循环  
+        for (i = 0; i < len; i++) {
+            int curSum = 0;
+            //向后累加的循环  
+            for (j = i; j < len; j++) {
+                curSum += arr[j];
+                if (curSum > maxSum)
+                    maxSum = curSum;
+            }
+        }
+        return maxSum;
+    }
+    
+2. public static int maxSubSum(int[] arr, int len) {
+        int i;
+        int maxSum = 0;
+        int curSum = 0;//子数组的和
+        for (i = 0; i < len; i++) {
+            curSum += arr[i];
+            if (curSum > maxSum)
+                maxSum = curSum;
+            //如果累加和出现小于0的情况，
+            //则和最大的子序列肯定不可能包含前面的元素，
+            //这时将累加和置0，从下个元素重新开始累加
+            if (curSum < 0)
+                curSum = 0;
+        }
+        return maxSum;
+    }
 1.# -*- coding:utf-8 -*-
 class Solution:
     def FindGreatestSumOfSubArray(self, array):
@@ -25,15 +70,3 @@ class Solution:
                 temp_sum = 0
         return max(list_sum)
         
-        
-2.//动态规划
-int FindGreatestSumOfSubArray(vector<int> array) {
-        if(array.empty()) return 0;
-        int sum = array[0], tempsum = array[0]; //注意初始值 不能设为0 防止只有负数
-        for(int i = 1; i < array.size(); i++) //从1开始 因为0的情况在初始化时完成了
-        {
-            tempsum = (tempsum < 0) ? array[i] : tempsum + array[i];
-            sum = (tempsum > sum) ? tempsum : sum;
-        }
-        return sum;
-    }
