@@ -16,7 +16,8 @@
           result.extend(oushu)
           return result
    
-   2.def reOrderArray(self, array):
+   2.from collections import deque
+    def reOrderArray(self, array):
         odd = deque()
         x = len(array)
         for i in range(x):
