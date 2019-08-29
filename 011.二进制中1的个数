@@ -8,4 +8,11 @@
     def NumberOf1(self, n):
         # write code here
          return sum([(n>>i & 1) for i in range(0,32)])
+         
+    def NumberOf1 (n):
+      ret=0
+      while n:
+          ret +=1
+          n=n&n-1
+      return ret
 
