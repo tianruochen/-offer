@@ -21,21 +21,20 @@
 
 成功方案：
 1.
- public static int maxSubSum1(int[] arr, int len) {
-        int i, j;
-        int maxSum = 0;
-        //每次开始累加的起始位置的循环  
-        for (i = 0; i < len; i++) {
-            int curSum = 0;
-            //向后累加的循环  
-            for (j = i; j < len; j++) {
-                curSum += arr[j];
-                if (curSum > maxSum)
-                    maxSum = curSum;
-            }
-        }
-        return maxSum;
-    }
+ class Solution:
+    def FindGreatestSumOfSubArray(self, array):
+        # write code here
+        if len(array)<=0:
+            return
+        tempsum = 0
+        maxsum = -10000
+        for i in array:
+            tempsum += i
+            if tempsum>=maxsum:
+                maxsum= tempsum
+            if tempsum<0:
+                tempsum = 0
+        return maxsum
     
 2. public static int maxSubSum(int[] arr, int len) {
         int i;
