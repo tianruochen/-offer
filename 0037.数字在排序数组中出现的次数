@@ -18,6 +18,9 @@ class Solution:
         因为data中都是整数，所以可以稍微变一下，不是搜索k的两个位置，而是搜索k-0.5和k+0.5
 
         这两个数应该插入的位置，然后相减即可,不需要加1。
+        
+        总结：折半查找插入位置  while 循环 low<=high  raturn low ----low的位置就是应该插入的位置。 
+        
 class Solution:
     def biSearch(self,data, k):
         low = 0
@@ -28,7 +31,7 @@ class Solution:
                 high = mid - 1
             elif data[mid] < k:
                 low = mid + 1
-        return high
+        return low
 
     def GetNumberOfK(self,data, k):
         # write code here
