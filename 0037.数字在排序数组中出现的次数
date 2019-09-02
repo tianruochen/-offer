@@ -11,4 +11,25 @@ class Solution:
     def GetNumberOfK(self, data, k):
         # write code here
         return data.count(k)
-    
+
+
+3.推荐方案：整体用二分法，找到头和尾。
+
+        因为data中都是整数，所以可以稍微变一下，不是搜索k的两个位置，而是搜索k-0.5和k+0.5
+
+        这两个数应该插入的位置，然后相减即可。
+def biSearch(data, k):
+    low = 0
+    high = len(data) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if data[mid] > k:
+            high = mid - 1
+        elif data[mid] < k:
+            low = mid + 1
+    return high
+
+def GetNumberOfK(data, k):
+    # write code here
+    if not data: return 0
+    return biSearch(data, k+0.5) - biSearch(data, k-0.5)
