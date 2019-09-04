@@ -34,23 +34,20 @@
         每次访问一个节点，那么就将当前权值求和
         如果当前权值和与期待的和一致，那么说明我们找到了一个路径，保存或者输出
         每次深度遍历到底部，回退一个点
-    class TreeNode:
-          def __init__(self, x):
-              self.val = x
-              self.left = None
-              self.right = None
-
-          ### 前序遍历，深度优先遍历dfs
-          result_all = []
-          array = []
-          def FindPath(root, expectNumber):
+              
+  class Solution:
+    # 返回二维列表，内部每个列表表示找到的路径
+      def __init__(self):
+          self.result_all = []
+          self.array = []
+      def FindPath(self,root, expectNumber):
               # write code here
-              if not root: return []
-              array.append(root.val)
-              expectNumber -= root.val
-              if expectNumber == 0 and not root.left and not root.right:
-                  result_all.append(array[:])
-              FindPath(root.left, expectNumber)
-              FindPath(root.right, expectNumber)
-              array.pop()
-              return result_all
+          if not root: return []
+          self.array.append(root.val)
+          expectNumber -= root.val
+          if expectNumber == 0 and not root.left and not root.right:
+              self.result_all.append(self.array[:])   #一定要用深拷贝
+          self.FindPath(root.left, expectNumber)
+          self.FindPath(root.right, expectNumber)
+          self.array.pop()
+          return self.result_all
