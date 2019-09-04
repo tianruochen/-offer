@@ -1,0 +1,21 @@
+https://blog.csdn.net/zilong10_24/article/details/79875400
+
+
+class myStack:
+    #找出以元素i结尾的最长递增子序列
+    #每一次为ｉ进行分配时，要检查前面所有的算法ai(i<x)
+    #若ai小于ax，则说明ax可以跟在ai后形成一个新的递增子序列
+    #否则，以ax结尾的递增子序列的最长长度为1
+    def getHeight(self, men, n):
+        longest = []
+        longest.append(1)
+        for i in range(1, len(men)):
+            maxlen = -1
+            for j in range(0, i):
+                if men[i]>men[j] and maxlen<longest[j]:
+                    maxlen = longest[j]
+            if maxlen>=1:    #说明之前的递增序列中，有ax可以跟的
+                longest.append(maxlen+1)
+            else:
+                longest.append(1)
+        return max(longest)
