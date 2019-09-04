@@ -6,7 +6,7 @@ class myStack:
     #每一次为ｉ进行分配时，要检查前面所有的算法ai(i<x)
     #若ai小于ax，则说明ax可以跟在ai后形成一个新的递增子序列
     #否则，以ax结尾的递增子序列的最长长度为1
-    def getHeight(self, men, n):
+    def getHeight(self, men):
         longest = []
         longest.append(1)
         for i in range(1, len(men)):
